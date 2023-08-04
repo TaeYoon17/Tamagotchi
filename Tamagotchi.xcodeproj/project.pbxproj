@@ -13,6 +13,14 @@
 		63637BA12A7CD21400ECD236 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63637B9F2A7CD21400ECD236 /* Main.storyboard */; };
 		63637BA32A7CD21400ECD236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63637BA22A7CD21400ECD236 /* Assets.xcassets */; };
 		63637BA62A7CD21400ECD236 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63637BA42A7CD21400ECD236 /* LaunchScreen.storyboard */; };
+		63DBD7ED2A7CDCD900408544 /* IconResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DBD7EC2A7CDCD900408544 /* IconResource.swift */; };
+		63DBD7EF2A7CE01600408544 /* DamaResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DBD7EE2A7CE01600408544 /* DamaResources.swift */; };
+		63DBD7F22A7CE08400408544 /* DamaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DBD7F12A7CE08400408544 /* DamaModel.swift */; };
+		63DBD7F42A7CE1C100408544 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DBD7F32A7CE1C100408544 /* UserModel.swift */; };
+		63DBD7F62A7CEC8700408544 /* ColorResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DBD7F52A7CEC8700408544 /* ColorResources.swift */; };
+		63DBD7F92A7CEEB500408544 /* SelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DBD7F82A7CEEB500408544 /* SelectVC.swift */; };
+		63DBD7FF2A7CEF0900408544 /* SelectItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DBD7FD2A7CEF0900408544 /* SelectItemCell.swift */; };
+		63DBD8002A7CEF0900408544 /* SelectItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63DBD7FE2A7CEF0900408544 /* SelectItemCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,14 @@
 		63637BA22A7CD21400ECD236 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63637BA52A7CD21400ECD236 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63637BA72A7CD21400ECD236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63DBD7EC2A7CDCD900408544 /* IconResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconResource.swift; sourceTree = "<group>"; };
+		63DBD7EE2A7CE01600408544 /* DamaResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamaResources.swift; sourceTree = "<group>"; };
+		63DBD7F12A7CE08400408544 /* DamaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamaModel.swift; sourceTree = "<group>"; };
+		63DBD7F32A7CE1C100408544 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		63DBD7F52A7CEC8700408544 /* ColorResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorResources.swift; sourceTree = "<group>"; };
+		63DBD7F82A7CEEB500408544 /* SelectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectVC.swift; sourceTree = "<group>"; };
+		63DBD7FD2A7CEF0900408544 /* SelectItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectItemCell.swift; sourceTree = "<group>"; };
+		63DBD7FE2A7CEF0900408544 /* SelectItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectItemCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +72,71 @@
 		63637B982A7CD21400ECD236 /* Tamagotchi */ = {
 			isa = PBXGroup;
 			children = (
+				63DBD7FB2A7CEEE100408544 /* View */,
+				63DBD7F72A7CEE9600408544 /* VC */,
+				63DBD7F02A7CE05A00408544 /* Model */,
+				63DBD7EB2A7CDB3400408544 /* ResourcesHelper */,
 				63637B992A7CD21400ECD236 /* AppDelegate.swift */,
 				63637B9B2A7CD21400ECD236 /* SceneDelegate.swift */,
 				63637B9D2A7CD21400ECD236 /* ViewController.swift */,
-				63637B9F2A7CD21400ECD236 /* Main.storyboard */,
 				63637BA22A7CD21400ECD236 /* Assets.xcassets */,
 				63637BA42A7CD21400ECD236 /* LaunchScreen.storyboard */,
 				63637BA72A7CD21400ECD236 /* Info.plist */,
 			);
 			path = Tamagotchi;
+			sourceTree = "<group>";
+		};
+		63DBD7EB2A7CDB3400408544 /* ResourcesHelper */ = {
+			isa = PBXGroup;
+			children = (
+				63DBD7EC2A7CDCD900408544 /* IconResource.swift */,
+				63DBD7EE2A7CE01600408544 /* DamaResources.swift */,
+				63DBD7F52A7CEC8700408544 /* ColorResources.swift */,
+			);
+			path = ResourcesHelper;
+			sourceTree = "<group>";
+		};
+		63DBD7F02A7CE05A00408544 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				63DBD7F12A7CE08400408544 /* DamaModel.swift */,
+				63DBD7F32A7CE1C100408544 /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		63DBD7F72A7CEE9600408544 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				63DBD7FA2A7CEEB900408544 /* Select */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		63DBD7FA2A7CEEB900408544 /* Select */ = {
+			isa = PBXGroup;
+			children = (
+				63DBD7FD2A7CEF0900408544 /* SelectItemCell.swift */,
+				63DBD7F82A7CEEB500408544 /* SelectVC.swift */,
+			);
+			path = Select;
+			sourceTree = "<group>";
+		};
+		63DBD7FB2A7CEEE100408544 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				63637B9F2A7CD21400ECD236 /* Main.storyboard */,
+				63DBD7FC2A7CEEEC00408544 /* Select */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		63DBD7FC2A7CEEEC00408544 /* Select */ = {
+			isa = PBXGroup;
+			children = (
+				63DBD7FE2A7CEF0900408544 /* SelectItemCell.xib */,
+			);
+			path = Select;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +199,7 @@
 			files = (
 				63637BA62A7CD21400ECD236 /* LaunchScreen.storyboard in Resources */,
 				63637BA32A7CD21400ECD236 /* Assets.xcassets in Resources */,
+				63DBD8002A7CEF0900408544 /* SelectItemCell.xib in Resources */,
 				63637BA12A7CD21400ECD236 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,8 +211,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63DBD7EF2A7CE01600408544 /* DamaResources.swift in Sources */,
+				63DBD7F62A7CEC8700408544 /* ColorResources.swift in Sources */,
+				63DBD7F42A7CE1C100408544 /* UserModel.swift in Sources */,
 				63637B9E2A7CD21400ECD236 /* ViewController.swift in Sources */,
+				63DBD7FF2A7CEF0900408544 /* SelectItemCell.swift in Sources */,
+				63DBD7F92A7CEEB500408544 /* SelectVC.swift in Sources */,
 				63637B9A2A7CD21400ECD236 /* AppDelegate.swift in Sources */,
+				63DBD7ED2A7CDCD900408544 /* IconResource.swift in Sources */,
+				63DBD7F22A7CE08400408544 /* DamaModel.swift in Sources */,
 				63637B9C2A7CD21400ECD236 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
