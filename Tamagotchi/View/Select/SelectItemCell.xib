@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -27,26 +26,24 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="szo-gv-vzr">
                         <rect key="frame" x="0.0" y="666" width="599" height="53"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="따끔따끔 다마고치" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="t4v-2b-d3z">
-                                <rect key="frame" x="8" y="17" width="583" height="19"/>
-                                <color key="backgroundColor" red="0.94117647410000005" green="0.59215688710000003" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="따끔따끔 다마고치" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t4v-2b-d3z">
+                                <rect key="frame" x="4" y="17" width="591" height="19"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.30196078430000001" green="0.41568627450000001" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBlueColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="t4v-2b-d3z" secondAttribute="trailing" constant="8" id="986-1q-QPs"/>
+                            <constraint firstAttribute="trailing" secondItem="t4v-2b-d3z" secondAttribute="trailing" constant="4" id="986-1q-QPs"/>
                             <constraint firstItem="t4v-2b-d3z" firstAttribute="centerY" secondItem="szo-gv-vzr" secondAttribute="centerY" id="pet-HI-LFS"/>
-                            <constraint firstItem="t4v-2b-d3z" firstAttribute="leading" secondItem="szo-gv-vzr" secondAttribute="leading" constant="8" id="t8H-RS-4fv"/>
+                            <constraint firstItem="t4v-2b-d3z" firstAttribute="leading" secondItem="szo-gv-vzr" secondAttribute="leading" constant="4" id="t8H-RS-4fv"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <color key="backgroundColor" red="0.69019609689999994" green="0.37254902719999999" blue="0.90980386729999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="szo-gv-vzr" secondAttribute="trailing" id="0Fo-t3-aop"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="I2T-ft-xc1" secondAttribute="trailing" id="7CC-Ho-3gB"/>
@@ -67,8 +64,5 @@
     </objects>
     <resources>
         <image name="1-7" width="152" height="151"/>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

@@ -7,8 +7,10 @@
 
 import Foundation
 import UIKit
-enum DamaType:Int{
-    case ddaggeum,bangsil,banzzak
+
+// 다마고치별 타입마다 갖고 있어야 할 최소 특성 - 한국 이름, 설명, 이미지
+enum DamaType:Int,CaseIterable,Codable{
+    case ddaggeum = 1,bangsil,banzzak
     var korean:String{
         switch self{
         case .ddaggeum: return "따끔따끔"
@@ -19,15 +21,15 @@ enum DamaType:Int{
     var description:String{
         return Message.getDescription(dama: self)
     }
-    func getImg(level:Int)->UIImage{
-        UIImage.getDamaImg(type: self, level: level)
+    func getImg(level:Int = 6)->UIImage{
+        return UIImage.getDamaImg(level: level,type: self)
     }
 }
 
-struct Dama{
+struct Dama:Codable{
     var type: DamaType
-    private let maxGrain: Int = 100
-    private let maxWater:Int = 50
+    static private let maxGrain: Int = 100
+    static private let maxWater:Int = 50
     public private(set) var rice_grain: Int
     public private(set) var water_drop: Int
     var level:Int{
@@ -35,12 +37,12 @@ struct Dama{
         return Int(calc / 10) > 10 ? 10 : Int(calc / 10)
     }
     mutating func add_grain(count: Int)->Bool {
-        guard count < maxGrain else {return false}
+        guard count < Self.maxGrain else {return false}
         rice_grain += count
         return true
     }
     mutating func add_water(count: Int)-> Bool{
-        guard count < maxWater else {return false}
+        guard count < Self.maxWater else {return false}
         water_drop += count
         return true
     }

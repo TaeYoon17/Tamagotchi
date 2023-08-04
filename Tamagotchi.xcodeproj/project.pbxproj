@@ -23,6 +23,9 @@
 		63DBD8022A7CF53100408544 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DBD8012A7CF53100408544 /* Messages.swift */; };
 		63DBD8052A7D055100408544 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DBD8042A7D055100408544 /* MainVC.swift */; };
 		63DBD8082A7D0ADA00408544 /* CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DBD8072A7D0ADA00408544 /* CollectionViewExtension.swift */; };
+		63DBD80A2A7D207C00408544 /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DBD8092A7D207C00408544 /* CollectionExtension.swift */; };
+		63DBD80C2A7D256700408544 /* SelectPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DBD80B2A7D256700408544 /* SelectPopUpVC.swift */; };
+		63DBD8102A7D397E00408544 /* DataProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DBD80F2A7D397E00408544 /* DataProcess.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		63DBD8012A7CF53100408544 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		63DBD8042A7D055100408544 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		63DBD8072A7D0ADA00408544 /* CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewExtension.swift; sourceTree = "<group>"; };
+		63DBD8092A7D207C00408544 /* CollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtension.swift; sourceTree = "<group>"; };
+		63DBD80B2A7D256700408544 /* SelectPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPopUpVC.swift; sourceTree = "<group>"; };
+		63DBD80F2A7D397E00408544 /* DataProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProcess.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,11 +82,10 @@
 		63637B982A7CD21400ECD236 /* Tamagotchi */ = {
 			isa = PBXGroup;
 			children = (
-				63DBD8062A7D0AC500408544 /* Extensions */,
+				63DBD80D2A7D395400408544 /* Helpers */,
 				63DBD7FB2A7CEEE100408544 /* View */,
 				63DBD7F72A7CEE9600408544 /* VC */,
 				63DBD7F02A7CE05A00408544 /* Model */,
-				63DBD7EB2A7CDB3400408544 /* ResourcesHelper */,
 				63637B992A7CD21400ECD236 /* AppDelegate.swift */,
 				63637B9B2A7CD21400ECD236 /* SceneDelegate.swift */,
 				63637BA22A7CD21400ECD236 /* Assets.xcassets */,
@@ -124,6 +129,7 @@
 			children = (
 				63DBD7FD2A7CEF0900408544 /* SelectItemCell.swift */,
 				63DBD7F82A7CEEB500408544 /* SelectVC.swift */,
+				63DBD80B2A7D256700408544 /* SelectPopUpVC.swift */,
 			);
 			path = Select;
 			sourceTree = "<group>";
@@ -153,12 +159,31 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		63DBD8062A7D0AC500408544 /* Extensions */ = {
+		63DBD8062A7D0AC500408544 /* ExtensionsHelper */ = {
 			isa = PBXGroup;
 			children = (
 				63DBD8072A7D0ADA00408544 /* CollectionViewExtension.swift */,
+				63DBD8092A7D207C00408544 /* CollectionExtension.swift */,
 			);
-			path = Extensions;
+			path = ExtensionsHelper;
+			sourceTree = "<group>";
+		};
+		63DBD80D2A7D395400408544 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				63DBD80E2A7D396A00408544 /* LogicHelper */,
+				63DBD8062A7D0AC500408544 /* ExtensionsHelper */,
+				63DBD7EB2A7CDB3400408544 /* ResourcesHelper */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		63DBD80E2A7D396A00408544 /* LogicHelper */ = {
+			isa = PBXGroup;
+			children = (
+				63DBD80F2A7D397E00408544 /* DataProcess.swift */,
+			);
+			path = LogicHelper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,10 +259,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				63DBD7EF2A7CE01600408544 /* DamaResources.swift in Sources */,
+				63DBD80C2A7D256700408544 /* SelectPopUpVC.swift in Sources */,
 				63DBD8052A7D055100408544 /* MainVC.swift in Sources */,
 				63DBD7F62A7CEC8700408544 /* ColorResources.swift in Sources */,
 				63DBD7F42A7CE1C100408544 /* UserModel.swift in Sources */,
+				63DBD8102A7D397E00408544 /* DataProcess.swift in Sources */,
 				63DBD8082A7D0ADA00408544 /* CollectionViewExtension.swift in Sources */,
+				63DBD80A2A7D207C00408544 /* CollectionExtension.swift in Sources */,
 				63DBD7FF2A7CEF0900408544 /* SelectItemCell.swift in Sources */,
 				63DBD7F92A7CEEB500408544 /* SelectVC.swift in Sources */,
 				63637B9A2A7CD21400ECD236 /* AppDelegate.swift in Sources */,
@@ -405,7 +433,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ii.Tamagotchi;
+				PRODUCT_BUNDLE_IDENTIFIER = ii.BOOKWARM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -437,7 +465,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ii.Tamagotchi;
+				PRODUCT_BUNDLE_IDENTIFIER = ii.BOOKWARM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

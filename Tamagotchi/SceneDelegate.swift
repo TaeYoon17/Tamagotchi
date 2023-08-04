@@ -12,17 +12,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: scene) // window를 코드로 다룰 수 있도록 변환
-        UIView.appearance().backgroundColor = .background
+//        UIView.appearance().backgroundColor = .background
         UILabel.appearance().textColor = .accentColor
-        let user:User? = UserDefaults.standard.object(forKey: "User") as? User
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        if let user = user{
-            User.initUser(user: user)
+        if User.isExist{
             guard let vc = sb.instantiateViewController(withIdentifier: MainVC.identifier) as? MainVC else { return }
-            window?.rootViewController = vc
+            let nav = UINavigationController(rootViewController: vc)
+            window?.rootViewController = nav
         }else{
             guard let vc = sb.instantiateViewController(withIdentifier: SelectVC.identifier) as? SelectVC else { return }
-            window?.rootViewController = vc
+            vc.processType = .Create
+            let nav = UINavigationController(rootViewController: vc)
+            window?.rootViewController = nav
         }
         window?.makeKeyAndVisible() // 아이폰에서 보게 해주세요.
     }
