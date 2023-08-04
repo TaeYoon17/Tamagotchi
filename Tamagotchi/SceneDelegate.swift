@@ -9,14 +9,22 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let scene = (scene as? UIWindowScene) else { return }
+        self.window = UIWindow(windowScene: scene) // window를 코드로 다룰 수 있도록 변환
         UIView.appearance().backgroundColor = .background
+        UILabel.appearance().textColor = .accentColor
+        let user:User? = UserDefaults.standard.object(forKey: "User") as? User
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        if let user = user{
+            User.initUser(user: user)
+            guard let vc = sb.instantiateViewController(withIdentifier: MainVC.identifier) as? MainVC else { return }
+            window?.rootViewController = vc
+        }else{
+            guard let vc = sb.instantiateViewController(withIdentifier: SelectVC.identifier) as? SelectVC else { return }
+            window?.rootViewController = vc
+        }
+        window?.makeKeyAndVisible() // 아이폰에서 보게 해주세요.
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

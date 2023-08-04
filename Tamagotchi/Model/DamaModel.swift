@@ -16,6 +16,9 @@ enum DamaType:Int{
         case .banzzak: return "반짝반짝"
         }
     }
+    var description:String{
+        return Message.getDescription(dama: self)
+    }
     func getImg(level:Int)->UIImage{
         UIImage.getDamaImg(type: self, level: level)
     }
