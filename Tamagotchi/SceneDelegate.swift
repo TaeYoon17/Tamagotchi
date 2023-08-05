@@ -13,9 +13,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: scene) // window를 코드로 다룰 수 있도록 변환
 //        UIView.appearance().backgroundColor = .background
-        UILabel.appearance().textColor = .accentColor
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance?.backgroundColor = .background
+        UINavigationBar.appearance().scrollEdgeAppearance?.titleTextAttributes = [.foregroundColor : UIColor.accentColor]
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().standardAppearance.titleTextAttributes = [.foregroundColor : UIColor.accentColor]
+//        UINavigationBar.appearance().standardAppearance.backgroundColor = .clear
         let sb = UIStoryboard(name: "Main", bundle: nil)
         if User.isExist{
+            print("유저 존재")
             guard let vc = sb.instantiateViewController(withIdentifier: MainVC.identifier) as? MainVC else { return }
             let nav = UINavigationController(rootViewController: vc)
             window?.rootViewController = nav
@@ -33,6 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
         // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
+        User.shared?.saveData()
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {

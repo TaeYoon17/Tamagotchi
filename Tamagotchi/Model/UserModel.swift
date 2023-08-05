@@ -7,6 +7,14 @@
 
 import Foundation
 class User{
+    static func reset(completion:(()->())?){
+        User.shared = nil
+        UserDefaults.standard.set(nil,forKey: "dama")
+        UserDefaults.standard.set(nil,forKey: "username")
+        UserDefaults.standard.set(nil,forKey: "User")
+        guard let completion else {return}
+        completion()
+    }
     static func initUser(dama:DamaType){
         if Self.shared != nil { return }
         let dama = Dama(type: dama, rice_grain: 0, water_drop: 0)
@@ -40,11 +48,32 @@ class User{
     }
     static public private(set) var shared: User?
     public private(set) var nickName: String
-    var dama: Dama
+    var dama: Dama{
+        didSet{
+            print("User의 다마가 바뀜..!")
+            if let dama = try? JSONEncoder().encode(dama){
+                UserDefaults.standard.set(dama,forKey: "dama")
+                print("User의 다마를 저장함..!")
+            }
+        }
+    }
     private init(nickName: String, dama: Dama) {
         self.nickName = nickName
         self.dama = dama
     }
+    
+    func saveData(){
+        if let shared = Self.shared, let dama = try? JSONEncoder().encode(shared.dama){
+            UserDefaults.standard.set(dama,forKey: "dama")
+            UserDefaults.standard.set(shared.nickName,forKey: "username")
+            UserDefaults.standard.set(true, forKey: "User")
+            print("저장 성공")
+        }else{
+            print("저장 실패")
+        }
+        print(#function)
+    }
+    
     
     @discardableResult
     func changeName(_ name:String)->Bool{

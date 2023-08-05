@@ -25,25 +25,41 @@ enum DamaType:Int,CaseIterable,Codable{
         return UIImage.getDamaImg(level: level,type: self)
     }
 }
+enum EatType:Int,CaseIterable{
+    case water = 1, food
+    var icon:UIImage{
+        switch self{
+        case .food:
+            return UIImage(systemName: "drop.circle") ?? UIImage()
+        case .water:
+            return UIImage(systemName: "leaf.circle") ?? UIImage()
+        }
+    }
+    var maxEat:Int{
+        switch self{
+        case .food: return 50
+        case .water: return 100
+        }
+    }
+}
 
 struct Dama:Codable{
     var type: DamaType
-    static private let maxGrain: Int = 100
-    static private let maxWater:Int = 50
     public private(set) var rice_grain: Int
     public private(set) var water_drop: Int
     var level:Int{
         let calc = Double(self.rice_grain) / 5.0 + Double(water_drop) / 2.0
-        return Int(calc / 10) > 10 ? 10 : Int(calc / 10)
+        
+        return Int(calc / 10) > 10 ? 10 : Int(calc / 10) <= 0 ? 1 : Int(calc / 10)
     }
-    mutating func add_grain(count: Int)->Bool {
-        guard count < Self.maxGrain else {return false}
-        rice_grain += count
-        return true
-    }
-    mutating func add_water(count: Int)-> Bool{
-        guard count < Self.maxWater else {return false}
-        water_drop += count
+    @discardableResult
+    mutating func eat(type: EatType,count: Int)->Bool {
+        guard count < type.maxEat else { return false}
+        switch type{
+        case .food: rice_grain += count
+        case .water: water_drop += count
+        }
+        print("정보입력완료..!")
         return true
     }
 }

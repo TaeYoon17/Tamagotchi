@@ -28,7 +28,8 @@ class SelectVC: UIViewController,DataProcessable{
         switch processType {
         case .Create:
             self.navigationItem.title = "다마고치 선택하기"
-        default: break
+        default:
+            self.navigationItem.title = "다마고치 변경하기"
         }
     }
 }
@@ -63,6 +64,17 @@ extension SelectVC: UICollectionViewDelegate,UICollectionViewDataSource{
         if let dama = damas[safe: indexPath.row]{
             cell.damaTypeLabel.text = "\(dama.korean) 다마고치"
             cell.damaImgView.image = dama.getImg()
+            cell.damaImgView.layer.sublayers = []
+            if let user = User.shared, processType == .Update, dama == user.dama.type{
+                DispatchQueue.main.async {
+                    let layer = CALayer()
+                    layer.frame = .init(x: 0, y: 0, width: cell.damaImgView.frame.width, height: cell.damaImgView.frame.width)
+                    layer.backgroundColor = .init(gray: 0.2, alpha: 0.3)
+                    cell.damaImgView.layer.cornerRadius = cell.damaImgView.bounds.width / 2
+                    cell.damaImgView.clipsToBounds = true
+                    cell.damaImgView.layer.addSublayer(layer)
+                }
+            }
         }else{
             cell.damaTypeLabel.text = "준비중이에요"
             cell.damaImgView.image = UIImage.getDamaImg()
@@ -70,7 +82,8 @@ extension SelectVC: UICollectionViewDelegate,UICollectionViewDataSource{
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let type = damas[safe: indexPath.row], let vc = storyboard?.instantiateViewController(identifier: SelectPopUpVC.identifier) as? SelectPopUpVC{
+        if let type = damas[safe: indexPath.row],
+           let vc = storyboard?.instantiateViewController(identifier: SelectPopUpVC.identifier) as? SelectPopUpVC{
             vc.damaType = type
             vc.processType = processType
             vc.modalPresentationStyle = .overCurrentContext
@@ -91,6 +104,17 @@ extension SelectVC: UICollectionViewDelegate,UICollectionViewDataSource{
                     let nav = UINavigationController(rootViewController: vc)
                     sceneDelegate?.window?.rootViewController = nav
                     sceneDelegate?.window?.makeKeyAndVisible()
+                }
+            case .Update:
+                print("업데이트타입")
+                if let user = User.shared, type == user.dama.type{ return }
+                vc.completion = { [weak self] in
+                    User.shared?.changeDamaType(type)
+                    let alert = UIAlertController(title: "다마고치를 변경했어요", message: nil, preferredStyle: .alert)
+                    alert.addAction(.init(title: "확인", style: .cancel,handler: {[weak self] _ in
+                        self?.navigationController?.popViewController(animated: true)
+                    }))
+                    self?.present(alert, animated: true)
                 }
             default: break
             }

@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 extension UIImage{
     static func getDamaImg(level: Int = 0,type:DamaType? = nil)->UIImage{
-        print(type, level)
         guard let type, level > 0, level <= 10 else {
             return UIImage(named: "noImage")! }
         if level == 10{

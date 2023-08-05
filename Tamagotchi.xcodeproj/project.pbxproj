@@ -12,6 +12,10 @@
 		63637BA12A7CD21400ECD236 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63637B9F2A7CD21400ECD236 /* Main.storyboard */; };
 		63637BA32A7CD21400ECD236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63637BA22A7CD21400ECD236 /* Assets.xcassets */; };
 		63637BA62A7CD21400ECD236 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63637BA42A7CD21400ECD236 /* LaunchScreen.storyboard */; };
+		637FEB172A7E75BE002FBAEF /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637FEB162A7E75BE002FBAEF /* SettingModel.swift */; };
+		637FEB202A7E786E002FBAEF /* SettingItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637FEB1E2A7E786E002FBAEF /* SettingItemCell.swift */; };
+		637FEB212A7E786E002FBAEF /* SettingItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637FEB1F2A7E786E002FBAEF /* SettingItemCell.xib */; };
+		637FEB232A7E8091002FBAEF /* NameSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637FEB222A7E8091002FBAEF /* NameSettingVC.swift */; };
 		63DBD7ED2A7CDCD900408544 /* IconResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DBD7EC2A7CDCD900408544 /* IconResource.swift */; };
 		63DBD7EF2A7CE01600408544 /* DamaResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DBD7EE2A7CE01600408544 /* DamaResources.swift */; };
 		63DBD7F22A7CE08400408544 /* DamaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DBD7F12A7CE08400408544 /* DamaModel.swift */; };
@@ -26,6 +30,7 @@
 		63DBD80A2A7D207C00408544 /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DBD8092A7D207C00408544 /* CollectionExtension.swift */; };
 		63DBD80C2A7D256700408544 /* SelectPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DBD80B2A7D256700408544 /* SelectPopUpVC.swift */; };
 		63DBD8102A7D397E00408544 /* DataProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DBD80F2A7D397E00408544 /* DataProcess.swift */; };
+		63E5AA452A7E743B00C2B696 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E5AA442A7E743B00C2B696 /* SettingVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,10 @@
 		63637BA22A7CD21400ECD236 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63637BA52A7CD21400ECD236 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63637BA72A7CD21400ECD236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		637FEB162A7E75BE002FBAEF /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
+		637FEB1E2A7E786E002FBAEF /* SettingItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItemCell.swift; sourceTree = "<group>"; };
+		637FEB1F2A7E786E002FBAEF /* SettingItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingItemCell.xib; sourceTree = "<group>"; };
+		637FEB222A7E8091002FBAEF /* NameSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSettingVC.swift; sourceTree = "<group>"; };
 		63DBD7EC2A7CDCD900408544 /* IconResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconResource.swift; sourceTree = "<group>"; };
 		63DBD7EE2A7CE01600408544 /* DamaResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamaResources.swift; sourceTree = "<group>"; };
 		63DBD7F12A7CE08400408544 /* DamaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamaModel.swift; sourceTree = "<group>"; };
@@ -50,6 +59,7 @@
 		63DBD8092A7D207C00408544 /* CollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtension.swift; sourceTree = "<group>"; };
 		63DBD80B2A7D256700408544 /* SelectPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPopUpVC.swift; sourceTree = "<group>"; };
 		63DBD80F2A7D397E00408544 /* DataProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProcess.swift; sourceTree = "<group>"; };
+		63E5AA442A7E743B00C2B696 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +121,7 @@
 				63DBD7F12A7CE08400408544 /* DamaModel.swift */,
 				63DBD7F32A7CE1C100408544 /* UserModel.swift */,
 				63DBD8012A7CF53100408544 /* Messages.swift */,
+				637FEB162A7E75BE002FBAEF /* SettingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -118,6 +129,7 @@
 		63DBD7F72A7CEE9600408544 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				63E5AA462A7E744200C2B696 /* Setting */,
 				63DBD8032A7D054B00408544 /* Main */,
 				63DBD7FA2A7CEEB900408544 /* Select */,
 			);
@@ -137,6 +149,7 @@
 		63DBD7FB2A7CEEE100408544 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				63E5AA432A7E73F600C2B696 /* Setting */,
 				63637B9F2A7CD21400ECD236 /* Main.storyboard */,
 				63DBD7FC2A7CEEEC00408544 /* Select */,
 			);
@@ -186,6 +199,24 @@
 			path = LogicHelper;
 			sourceTree = "<group>";
 		};
+		63E5AA432A7E73F600C2B696 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				637FEB1F2A7E786E002FBAEF /* SettingItemCell.xib */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		63E5AA462A7E744200C2B696 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				637FEB1E2A7E786E002FBAEF /* SettingItemCell.swift */,
+				63E5AA442A7E743B00C2B696 /* SettingVC.swift */,
+				637FEB222A7E8091002FBAEF /* NameSettingVC.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -202,6 +233,8 @@
 			dependencies = (
 			);
 			name = Tamagotchi;
+			packageProductDependencies = (
+			);
 			productName = Tamagotchi;
 			productReference = 63637B962A7CD21400ECD236 /* Tamagotchi.app */;
 			productType = "com.apple.product-type.application";
@@ -230,6 +263,8 @@
 				Base,
 			);
 			mainGroup = 63637B8D2A7CD21300ECD236;
+			packageReferences = (
+			);
 			productRefGroup = 63637B972A7CD21400ECD236 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -246,6 +281,7 @@
 			files = (
 				63637BA62A7CD21400ECD236 /* LaunchScreen.storyboard in Resources */,
 				63637BA32A7CD21400ECD236 /* Assets.xcassets in Resources */,
+				637FEB212A7E786E002FBAEF /* SettingItemCell.xib in Resources */,
 				63DBD8002A7CEF0900408544 /* SelectItemCell.xib in Resources */,
 				63637BA12A7CD21400ECD236 /* Main.storyboard in Resources */,
 			);
@@ -259,19 +295,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				63DBD7EF2A7CE01600408544 /* DamaResources.swift in Sources */,
+				63E5AA452A7E743B00C2B696 /* SettingVC.swift in Sources */,
 				63DBD80C2A7D256700408544 /* SelectPopUpVC.swift in Sources */,
 				63DBD8052A7D055100408544 /* MainVC.swift in Sources */,
 				63DBD7F62A7CEC8700408544 /* ColorResources.swift in Sources */,
 				63DBD7F42A7CE1C100408544 /* UserModel.swift in Sources */,
 				63DBD8102A7D397E00408544 /* DataProcess.swift in Sources */,
+				637FEB202A7E786E002FBAEF /* SettingItemCell.swift in Sources */,
 				63DBD8082A7D0ADA00408544 /* CollectionViewExtension.swift in Sources */,
 				63DBD80A2A7D207C00408544 /* CollectionExtension.swift in Sources */,
 				63DBD7FF2A7CEF0900408544 /* SelectItemCell.swift in Sources */,
 				63DBD7F92A7CEEB500408544 /* SelectVC.swift in Sources */,
 				63637B9A2A7CD21400ECD236 /* AppDelegate.swift in Sources */,
 				63DBD7ED2A7CDCD900408544 /* IconResource.swift in Sources */,
+				637FEB172A7E75BE002FBAEF /* SettingModel.swift in Sources */,
 				63DBD7F22A7CE08400408544 /* DamaModel.swift in Sources */,
 				63DBD8022A7CF53100408544 /* Messages.swift in Sources */,
+				637FEB232A7E8091002FBAEF /* NameSettingVC.swift in Sources */,
 				63637B9C2A7CD21400ECD236 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

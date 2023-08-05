@@ -9,18 +9,21 @@ import Foundation
 import UIKit
 
 extension UIImage{
-    enum IconType:String{
-        case food = "drop.circle",water = "leaf.circle"
-    }
-    enum SettingType:String{
-        case name = "pencil"
-        case change = "moon.fill"
-        case reset = "arrow.clockwise"
-    }
-    static func getIcon(eat type:IconType)->UIImage{
-        UIImage(systemName: type.rawValue) ?? UIImage()
+    static func getIcon(eat type:EatType)->UIImage{
+        type.icon
     }
     static func getIcon(setting type:SettingType)->UIImage{
-        UIImage(systemName: type.rawValue) ?? UIImage()
+        type.getIcon
+    }
+}
+extension SettingType{
+    var getIcon:UIImage{
+        var str = ""
+        switch self{
+        case .dama: str = "moon.fill"
+        case .name: str = "pencil"
+        case .reset: str = "arrow.clockwise"
+        }
+        return UIImage(systemName: str) ?? UIImage()
     }
 }
