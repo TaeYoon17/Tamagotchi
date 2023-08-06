@@ -22,6 +22,10 @@ class SettingVC: UIViewController{
         tableView.rowHeight = 48
         navigationConfigure()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.tableView.reloadData()
+    }
     deinit{
         print("SettingVC Deinit!!")
     }
@@ -44,13 +48,10 @@ extension SettingVC:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingItemCell.identifier) as? SettingItemCell else {
-            return .init()
-        }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingItemCell.identifier) as? SettingItemCell else { return .init() }
         let settingType = allSettings[indexPath.row]
         cell.titleLabel.text = settingType.title
         cell.iconImgView.image = settingType.getIcon
-        
         cell.detailVC.text = settingType == .name ? usermodel?.nickName ?? "에러!! 초기화하세요." : ""
         return cell
     }

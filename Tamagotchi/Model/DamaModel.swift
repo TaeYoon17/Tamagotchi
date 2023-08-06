@@ -8,48 +8,13 @@
 import Foundation
 import UIKit
 
-// 다마고치별 타입마다 갖고 있어야 할 최소 특성 - 한국 이름, 설명, 이미지
-enum DamaType:Int,CaseIterable,Codable{
-    case ddaggeum = 1,bangsil,banzzak
-    var korean:String{
-        switch self{
-        case .ddaggeum: return "따끔따끔"
-        case .bangsil: return "방실방실"
-        case .banzzak: return "반짝반짝"
-        }
-    }
-    var description:String{
-        return Message.getDescription(dama: self)
-    }
-    func getImg(level:Int = 6)->UIImage{
-        return UIImage.getDamaImg(level: level,type: self)
-    }
-}
-enum EatType:Int,CaseIterable{
-    case water = 1, food
-    var icon:UIImage{
-        switch self{
-        case .food:
-            return UIImage(systemName: "drop.circle") ?? UIImage()
-        case .water:
-            return UIImage(systemName: "leaf.circle") ?? UIImage()
-        }
-    }
-    var maxEat:Int{
-        switch self{
-        case .food: return 50
-        case .water: return 100
-        }
-    }
-}
-
 struct Dama:Codable{
+    typealias Resources = ServiceResources
     var type: DamaType
     public private(set) var rice_grain: Int
     public private(set) var water_drop: Int
     var level:Int{
         let calc = Double(self.rice_grain) / 5.0 + Double(water_drop) / 2.0
-        
         return Int(calc / 10) > 10 ? 10 : Int(calc / 10) <= 0 ? 1 : Int(calc / 10)
     }
     @discardableResult
@@ -61,5 +26,40 @@ struct Dama:Codable{
         }
         print("정보입력완료..!")
         return true
+    }
+}
+extension Dama{
+    // 다마고치별 타입마다 갖고 있어야 할 최소 특성 - 한국 이름, 설명, 이미지
+    enum DamaType:Int,CaseIterable,Codable{
+        typealias R = Resources
+        case ddaggeum = 1,bangsil,banzzak
+        var korean:String{ R.damaTypeModels[self.rawValue]?.name ?? "이름이 없습니다." }
+        var description:String{ R.damaTypeModels[self.rawValue]?.description ?? "설명이 없습니다." }
+        func getImg(level:Int = 6)->UIImage{ UIImage.getDamaImg(level: level,type: self) }
+    }
+    struct DamaTypeModel{
+        let id:Int
+        let name:String
+        let description:String
+    }
+}
+
+extension Dama{
+    enum EatType:Int,CaseIterable{
+        typealias R = Resources
+        case water = 1, food
+        var icon:UIImage{
+            switch self{
+            case .food:
+                return UIImage(systemName: "drop.circle") ?? UIImage()
+            case .water:
+                return UIImage(systemName: "leaf.circle") ?? UIImage()
+            }
+        }
+        var maxEat:Int{ R.eatTypeModels[self.rawValue]?.maxCnt ?? 0 }
+    }
+    struct EatTypeModel{
+        let id:Int
+        let maxCnt:Int
     }
 }

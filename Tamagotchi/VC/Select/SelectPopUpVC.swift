@@ -7,6 +7,7 @@
 
 import UIKit
 class SelectPopUpVC:UIViewController,DataProcessable{
+    typealias DamaType = Dama.DamaType
     static let identifier = "SelectPopUpVC"
     var damaType:DamaType?
     var processType: DataProcessType?

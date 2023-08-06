@@ -7,6 +7,7 @@
 
 import UIKit
 class SelectVC: UIViewController,DataProcessable{
+    typealias DamaType = Dama.DamaType
     var processType: DataProcessType?
     static let identifier = "SelectVC"
     @IBOutlet weak var collectionView: UICollectionView!

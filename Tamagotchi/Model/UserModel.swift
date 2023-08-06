@@ -7,6 +7,7 @@
 
 import Foundation
 class User{
+    typealias DamaType = Dama.DamaType
     static func reset(completion:(()->())?){
         User.shared = nil
         UserDefaults.standard.set(nil,forKey: "dama")
@@ -47,7 +48,13 @@ class User{
         return exist
     }
     static public private(set) var shared: User?
-    public private(set) var nickName: String
+    public private(set) var nickName: String{
+        didSet{
+            print("User의 nicname이 바뀜..!")
+            UserDefaults.standard.set(nickName,forKey: "username")
+            print("User의 nickname을 저장함..!")
+        }
+    }
     var dama: Dama{
         didSet{
             print("User의 다마가 바뀜..!")
@@ -74,10 +81,10 @@ class User{
         print(#function)
     }
     
-    
     @discardableResult
     func changeName(_ name:String)->Bool{
-        if name.count < 2 && name.count > 6{
+        if name.count < 2 || name.count > 6{
+            print("이거 실패함 \(name)")
             return false
         }
         self.nickName = name

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIImage{
-    static func getIcon(eat type:EatType)->UIImage{
+    static func getIcon(eat type:Dama.EatType)->UIImage{
         type.icon
     }
     static func getIcon(setting type:SettingType)->UIImage{

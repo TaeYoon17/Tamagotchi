@@ -8,6 +8,7 @@
 import UIKit
 import Combine
 class MainVC:UIViewController{
+    typealias EatType = Dama.EatType
     static let identifier = "MainVC"
     // Model
     let usermodel: User? = User.shared
@@ -23,14 +24,14 @@ class MainVC:UIViewController{
     let pickerView = UIPickerView()
     
     // VC State Propertys
-    var inputEatType: EatType?{
+    var inputEatType: Dama.EatType?{
         didSet{
             pickerView.tag = inputEatType!.rawValue
             self.pickerView.reloadAllComponents()
         }
     }
     var subscription = Set<AnyCancellable>()
-    var inputCount = [EatType.water:0,.food:0]
+    var inputCount = [Dama.EatType.water:1,.food:1]
     var infosString:String{
         guard let usermodel else {return "계정이 없어용"}
         return "LV\(usermodel.dama.level) · 밥알 \(usermodel.dama.rice_grain) · 물방울 \(usermodel.dama.water_drop)"
@@ -38,6 +39,8 @@ class MainVC:UIViewController{
     func bindingModel(){
         guard let usermodel else {return}
         self.infosLabel.text = infosString
+        self.navigationItem.title = usermodel.nickName
+        self.commentLabel.text = ServiceResources.get(username: usermodel.nickName)
         self.titleLabel.text = "\(usermodel.dama.type.korean) 다마고치"
         self.damaImgView.image = usermodel.dama.getImg()
     }
@@ -53,6 +56,10 @@ class MainVC:UIViewController{
         self.pickerView.delegate = self; self.pickerView.dataSource = self
         bindingModel()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        bindingModel()
+    }
     deinit{
         print("MainVC 사라짐!!")
     }
@@ -66,13 +73,13 @@ extension MainVC{
     @IBAction func rootViewTapped(_ sender: UITapGestureRecognizer) { dismissKeyboard() }
     @IBAction func eatBtnTapped(_ sender: UIButton) {
         print(#function)
-        guard let btnEatType = EatType(rawValue: sender.tag),
+        guard let btnEatType = Dama.EatType(rawValue: sender.tag),
         let eatCount = inputCount[btnEatType],let usermodel else {return}
         usermodel.dama.eat(type: btnEatType, count: eatCount)
         bindingModel()
         if let textfield = textFields.first(where: {$0.tag == sender.tag}){
             textfield.text = ""
-            self.inputCount[btnEatType] = 0
+            self.inputCount[btnEatType] = 1
         }
         dismissKeyboard()
     }
@@ -160,7 +167,7 @@ extension MainVC{
         }
     }
 }
-fileprivate extension EatType{
+fileprivate extension Dama.EatType{
     var btnString:String{
         switch self{
         case .food: return "밥먹기"

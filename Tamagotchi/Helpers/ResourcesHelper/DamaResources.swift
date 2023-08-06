@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 extension UIImage{
+    typealias DamaType = Dama.DamaType
     static func getDamaImg(level: Int = 0,type:DamaType? = nil)->UIImage{
         guard let type, level > 0, level <= 10 else {
             return UIImage(named: "noImage")! }

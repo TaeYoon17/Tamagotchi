@@ -49,6 +49,22 @@ extension NameSettingVC{
         self.navigationItem.rightBarButtonItem = .init(title: "저장", style: .plain, target: self, action: #selector(Self.saveBtnTapped(_:)))
     }
     @objc func saveBtnTapped(_ sender: UIBarButtonItem){
+        guard let user,let prevName else {return}
+        let newName = self.textField.text?.trimmingCharacters(in: [" ","\n"]) ?? ""
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        if user.changeName(newName){
+            alert.title = "이름을 변경했어요"
+            alert.message = "이젠 \(prevName)에서 \(newName)으로 부를께용"
+        }else{
+            alert.title = "이름 바꾸기를 실패했어요"
+            alert.message = "2자리에서 6자리 사이의 글자 수로 지어주세요."
+        }
+//        let alert = UIAlertController(title: "이름을 변경했어요", message: "이젠 \(prevName)에서 \(newName)으로 부를께용", preferredStyle: .alert)
+            
+        alert.addAction(.init(title: "확인", style: .cancel,handler: { [weak self] _ in
+            self?.navigationController?.popViewController(animated: true)
+        }))
+        present(alert,animated: true)
         print(#function)
     }
 }
