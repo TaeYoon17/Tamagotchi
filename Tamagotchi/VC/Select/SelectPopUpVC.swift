@@ -27,7 +27,7 @@ class SelectPopUpVC:UIViewController,DataProcessable{
         guard let damaType,let processType else { return }
         self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
         self.rootView.backgroundColor = .background
-        self.titleLabel.text = damaType.korean
+        self.titleLabel.text = "\(damaType.korean) 다마고치"
         self.imageView.image = damaType.getImg()
         self.rootView.layer.cornerRadius = 16
         self.titleWrapperView.layer.cornerRadius = 8

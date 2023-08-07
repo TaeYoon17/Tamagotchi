@@ -51,9 +51,9 @@ extension Dama{
         var icon:UIImage{
             switch self{
             case .food:
-                return UIImage(systemName: "drop.circle") ?? UIImage()
-            case .water:
                 return UIImage(systemName: "leaf.circle") ?? UIImage()
+            case .water:
+                return UIImage(systemName: "drop.circle") ?? UIImage()
             }
         }
         var maxEat:Int{ R.eatTypeModels[self.rawValue]?.maxCnt ?? 0 }

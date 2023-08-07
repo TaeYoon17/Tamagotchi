@@ -93,9 +93,7 @@ class User{
     
     @discardableResult
     func changeDamaType(_ type:DamaType)->Bool{
-        if dama.type == type{
-            return false
-        }
+        if dama.type == type{ return false }
         self.dama.type = type
         return true
     }
