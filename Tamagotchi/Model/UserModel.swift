@@ -10,9 +10,9 @@ class User{
     typealias DamaType = Dama.DamaType
     static func reset(completion:(()->())?){
         User.shared = nil
-        UserDefaults.standard.set(nil,forKey: "dama")
-        UserDefaults.standard.set(nil,forKey: "username")
-        UserDefaults.standard.set(nil,forKey: "User")
+        UserDefaults.standard.dictionaryRepresentation().keys.forEach{
+            UserDefaults.standard.removeObject(forKey: $0.description)
+        }
         guard let completion else {return}
         completion()
     }

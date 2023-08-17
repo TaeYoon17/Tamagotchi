@@ -46,7 +46,7 @@ extension SelectVC: UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionLayout(){
         let layout = UICollectionViewFlowLayout()
         
-        let spacing:CGFloat = UIScreen.main.bounds.width >= 390 ? 20 : 16
+        let spacing:CGFloat = 16
         let itemWidth = collectionView.getCellWidth(itemCnt: 3, spacing: spacing)
         layout.itemSize = .init(width: itemWidth, height: itemWidth + (spacing == 16 ? 34 : 38))
         layout.minimumLineSpacing = spacing

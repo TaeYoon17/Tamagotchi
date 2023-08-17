@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Combine
 class MainVC:UIViewController{
     typealias EatType = Dama.EatType
     static let identifier = "MainVC"
@@ -21,16 +20,14 @@ class MainVC:UIViewController{
     @IBOutlet weak var eatTextField: UITextField!
     @IBOutlet var textFields: [UITextField]!
     @IBOutlet var eatBtns: [UIButton]!
-    let pickerView = UIPickerView()
     
     // VC State Propertys
     var inputEatType: Dama.EatType?{
         didSet{
-            pickerView.tag = inputEatType!.rawValue
-            self.pickerView.reloadAllComponents()
+//            pickerView.tag = inputEatType!.rawValue
+//            self.pickerView.reloadAllComponents()
         }
     }
-    var subscription = Set<AnyCancellable>()
     var inputCount = [Dama.EatType.water:1,.food:1]
     var infosString:String{
         guard let usermodel else {return "계정이 없어용"}
@@ -52,8 +49,12 @@ class MainVC:UIViewController{
         }
         navigationConfigure()
         designConfigure()
-        textFields.forEach { $0.delegate = self; $0.inputView = pickerView }
-        self.pickerView.delegate = self; self.pickerView.dataSource = self
+        //MARK: -- 여기 수정해야함
+        textFields.forEach { $0.delegate = self
+//            $0.inputView = pickerView
+            
+        }
+//        self.pickerView.delegate = self; self.pickerView.dataSource = self
         bindingModel()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -102,6 +103,16 @@ extension MainVC: UITextFieldDelegate{
             textField.placeholder = "물주세용"
         }
     }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text?.trimmingCharacters(in: .whitespaces), let cnt = Int(text+string),
+              let eatType = EatType(rawValue: textField.tag) else {return false}
+        if cnt < eatType.maxEat{
+            return true
+        }else {
+            self.showAlert(title: "줄 수 있는 \(eatType.str)양 초과", message: "\(eatType.maxEat) 보다 작게 주세용", cancel: "오키도키")
+            return false
+        }
+    }
 }
 extension MainVC: UIPickerViewDelegate,UIPickerViewDataSource{
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -144,6 +155,7 @@ extension MainVC{
             $0.font = .systemFont(ofSize: 15, weight: .semibold)
             $0.textColor = .accentColor
             $0.setValue(UIColor.lightGray, forKeyPath: "placeholderLabel.textColor")
+//            $0.keyboardType = .numberPad
             let layer = CALayer()
             layer.frame = .init(x: 8, y: $0.bounds.height - 4, width: $0.bounds.width, height: 0.8)
             layer.borderColor = UIColor.accentColor.cgColor
@@ -168,6 +180,12 @@ extension MainVC{
     }
 }
 fileprivate extension Dama.EatType{
+    var str:String{
+        switch self{
+        case .food: return "밥"
+        case .water: return "물"
+        }
+    }
     var btnString:String{
         switch self{
         case .food: return "밥먹기"

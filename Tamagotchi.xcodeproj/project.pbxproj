@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6322C2BC2A8E4C2700336413 /* AlertExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6322C2BB2A8E4C2700336413 /* AlertExtensions.swift */; };
 		63637B9A2A7CD21400ECD236 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63637B992A7CD21400ECD236 /* AppDelegate.swift */; };
 		63637B9C2A7CD21400ECD236 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63637B9B2A7CD21400ECD236 /* SceneDelegate.swift */; };
 		63637BA12A7CD21400ECD236 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63637B9F2A7CD21400ECD236 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6322C2BB2A8E4C2700336413 /* AlertExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExtensions.swift; sourceTree = "<group>"; };
 		63637B962A7CD21400ECD236 /* Tamagotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamagotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63637B992A7CD21400ECD236 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63637B9B2A7CD21400ECD236 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			children = (
 				63DBD8072A7D0ADA00408544 /* CollectionViewExtension.swift */,
 				63DBD8092A7D207C00408544 /* CollectionExtension.swift */,
+				6322C2BB2A8E4C2700336413 /* AlertExtensions.swift */,
 			);
 			path = ExtensionsHelper;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				63DBD7ED2A7CDCD900408544 /* IconResource.swift in Sources */,
 				637FEB172A7E75BE002FBAEF /* SettingModel.swift in Sources */,
 				63DBD7F22A7CE08400408544 /* DamaModel.swift in Sources */,
+				6322C2BC2A8E4C2700336413 /* AlertExtensions.swift in Sources */,
 				63DBD8022A7CF53100408544 /* ServiceResources.swift in Sources */,
 				637FEB232A7E8091002FBAEF /* NameSettingVC.swift in Sources */,
 				63637B9C2A7CD21400ECD236 /* SceneDelegate.swift in Sources */,

@@ -20,7 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UINavigationBar.appearance().scrollEdgeAppearance?.titleTextAttributes = [.foregroundColor : UIColor.accentColor]
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().standardAppearance.titleTextAttributes = [.foregroundColor : UIColor.accentColor]
-//        UINavigationBar.appearance().standardAppearance.backgroundColor = .clear
         let sb = UIStoryboard(name: "Main", bundle: nil)
         if User.isExist{
             print("유저 존재")
