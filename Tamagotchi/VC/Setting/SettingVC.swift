@@ -7,13 +7,17 @@
 
 import Foundation
 import UIKit
-class SettingVC: UIViewController{
+class SettingVC: UIViewController,SegueProtocol{
+    typealias U = String?
+    var transitionType: TransitionType?
+    var model: U?
     @IBOutlet weak var tableView: UITableView!
     static let identifier = "SettingVC"
     let allSettings = SettingType.allCases
     let usermodel = User.shared
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(model, "SettingVC Viewdidload")
         self.view.backgroundColor = .background
         tableView.backgroundColor = .background
         tableView.delegate = self

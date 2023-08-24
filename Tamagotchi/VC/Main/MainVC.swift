@@ -131,7 +131,17 @@ extension MainVC: UIPickerViewDelegate,UIPickerViewDataSource{
         "\(row + 1) 개"
     }
 }
-
+enum TransitionType{
+    case push
+    case navFullScreen
+    case present
+    case navPresent
+}
+protocol SegueProtocol{
+    associatedtype U
+    var transitionType: TransitionType? {get set}
+    var model: U? {get set}
+}
 extension MainVC{
     func navigationConfigure(){
         guard let usermodel else { return }
@@ -142,7 +152,14 @@ extension MainVC{
         self.navigationItem.rightBarButtonItem?.tintColor = .accentColor
     }
     @objc func settingTapped(_ sender: UIBarButtonItem){
-        guard let vc = storyboard?.instantiateViewController(identifier: SettingVC.identifier) as? SettingVC else {return}
+//        guard let vc = storyboard?.instantiateViewController(identifier: SettingVC.identifier) as? SettingVC else {return}
+//        self.navigationController?.pushViewController(vc, animated: true)
+        segueVC(vcType: SettingVC.self, style: .navFullScreen)
+    }
+
+    func segueVC<T:UIViewController & SegueProtocol>(vcType: T.Type,style: TransitionType){
+        guard var vc = storyboard?.instantiateViewController(withIdentifier: String(describing: vcType)) as? T else { return }
+        vc.model = "hello world!!" as? T.U
         self.navigationController?.pushViewController(vc, animated: true)
     }
     func designConfigure(){

@@ -7,6 +7,8 @@
 
 import UIKit
 class SelectVC: UIViewController,DataProcessable{
+    
+    
     typealias DamaType = Dama.DamaType
     var processType: DataProcessType?
     static let identifier = "SelectVC"
@@ -14,6 +16,7 @@ class SelectVC: UIViewController,DataProcessable{
     var damas:[DamaType] = DamaType.allCases
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         guard processType != nil else { fatalError("데이터 처리 타입을 정의하지 않음!!") }
         self.view.backgroundColor = .background
         self.navigationBarConfigure()
