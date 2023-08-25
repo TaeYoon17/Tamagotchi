@@ -6,17 +6,33 @@
 //
 
 import UIKit
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let scene = (scene as? UIWindowScene) else { return }
+        self.window = UIWindow(windowScene: scene) // window를 코드로 다룰 수 있도록 변환
+//        UIView.appearance().backgroundColor = .background
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance?.backgroundColor = .background
+        UINavigationBar.appearance().scrollEdgeAppearance?.titleTextAttributes = [.foregroundColor : UIColor.accentColor]
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().standardAppearance.titleTextAttributes = [.foregroundColor : UIColor.accentColor]
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        if User.isExist{
+            print("유저 존재")
+            guard let vc = sb.instantiateViewController(withIdentifier: MainVC.identifier) as? MainVC else { return }
+            let nav = UINavigationController(rootViewController: vc)
+            window?.rootViewController = nav
+        }else{
+            guard let vc = sb.instantiateViewController(withIdentifier: SelectVC.identifier) as? SelectVC else { return }
+            vc.processType = .Create
+            let nav = UINavigationController(rootViewController: vc)
+            window?.rootViewController = nav
+        }
+        window?.makeKeyAndVisible() // 아이폰에서 보게 해주세요.
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -24,6 +40,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
         // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
+        User.shared?.saveData()
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
